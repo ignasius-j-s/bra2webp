@@ -1,0 +1,18 @@
+[package]
+name = "bra2webp"
+version = "0.1.0"
+edition = "2021"
+authors = ["Ignasius <ignis19@pm.me>"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "bra2webp"
+path = "src/lib.rs"
+
+[dependencies]
+anyhow = "1.0.86"
+bitvec = "1.0.1"
+resize = "0.8.4"
+rgb = "0.8.37"
+webp-animation = "0.9.0"
