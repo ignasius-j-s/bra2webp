@@ -5,3 +5,7 @@ A CLI tool for converting animated sprite (.bra files) from the game "Last Windo
 ### Usage
 
 Run `bra2webp` without argument to print help
+
+## unpacker
+
+A CLI tool for unpacking .pack files

@@ -10,6 +10,7 @@ pub trait ReadUtil: Read {
     fn read_u16_le(&mut self) -> Result<u16>;
     fn read_u32_le(&mut self) -> Result<u32>;
     fn read_u32_be(&mut self) -> Result<u32>;
+    fn read_pascal_string(&mut self) -> Result<String>;
 }
 
 impl<T: Read> ReadUtil for T {
@@ -62,5 +63,14 @@ impl<T: Read> ReadUtil for T {
         let dword = self.dword()?;
 
         Ok(u32::from_be_bytes(dword))
+    }
+
+    fn read_pascal_string(&mut self) -> Result<String> {
+        let len = self.read_u8()?;
+        let mut buf = vec![0; len as usize];
+
+        self.read_exact(&mut buf)?;
+
+        Ok(String::from_utf8(buf)?)
     }
 }
